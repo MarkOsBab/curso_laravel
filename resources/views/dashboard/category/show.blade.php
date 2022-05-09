@@ -7,7 +7,7 @@
     <table class="table">
         <thead>
             <tr>
-                <td>#</td>
+                <td>Post ID</td>
                 <td>Title</td>
                 <td>Category ID</td>
             </tr>
