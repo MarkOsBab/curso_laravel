@@ -4,7 +4,6 @@ use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\PostController;
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
+Route::get('/', function () {
     return view('welcome');
 });
 
 
-Route::resource('post', PostController::class);
 
-Route::resource('category', CategoryController::class);
+Route::group(
+    [
+        'prefix' => 'dashboard',
+        'middleware' => 'auth'
+    ], function() {
+    Route::get('/', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::resources([
+        'post' => PostController::class,
+        'category' => CategoryController::class
+    ]);
+});
+
+require __DIR__.'/auth.php';

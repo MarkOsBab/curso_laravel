@@ -1,23 +1,13 @@
 @extends('dashboard.layout')
 
 @section('content')
-    <h1>Index</h1>
+<h1>Index</h1>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="{{route('category.create')}}">Crear post</a>
-            </li>
-          </ul>
-        </div>
-    </nav>
+@section('header')
+<a class="btn btn-success" href="{{route('post.create')}}">Crear post</a>
+@endsection
 
-    <table class="table border">
+    <table class="table mb-3">
         <thead>
             <tr>
                 <td>Titulo</td>
@@ -41,11 +31,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="container row">
-        <div class="col-sm-4">
-            {{-- Creamos la paginación de los elementos listados --}}
-            {{$categories->links()}}
-        </div>
-    </div>
+    {{-- Creamos la paginación de los elementos listados --}}
+    {{$categories->links()}}
     
 @endsection

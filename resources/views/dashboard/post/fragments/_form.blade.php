@@ -1,7 +1,7 @@
 {{-- Generar tóken para evitar ataques csfr --}}
 @csrf
 <label for="title">Titulo</label>
-<input type="text" name="title" class="form-control" value="{{old('title', $post->title)}}">
+<input class="form-control" type="text" name="title" value="{{old('title', $post->title)}}">
 
 <label for="title">Slug</label>
 <input type="text" name="slug" class="form-control" value="{{old('slug', $post->slug)}}">
