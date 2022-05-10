@@ -51,7 +51,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $category_show = Category::find(32)->posts;
+        $category_show = Category::find($category);
         return view('dashboard.category.show', compact('category'));
 
     }
